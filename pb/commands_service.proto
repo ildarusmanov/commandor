@@ -1,0 +1,41 @@
+syntax="proto3"
+
+service Commands {
+    rpc Exec(CommandsRequest) returns (CommandsResponse) {}
+}
+
+message Command {
+    string name = 1;
+    repeated Param = 2;
+}
+
+message Param {
+    string name = 1;
+    string type = 2;
+    Value value = 3;
+}
+
+message Error {
+    string message = 1;
+}
+
+message Result {
+    string request_id = 1;
+    int64 timestamp = 2;
+    repeated Error = 3
+    repeated Param = 4;
+}
+
+message CommandsRequest {
+    string signature = 1;
+    int64 timestamp = 2;
+    bool async = 3;
+    repeated Command = 4;
+}
+
+message CommandsResponse {
+    string request_id = 1
+    int64 timestamp = 2;
+    repeated Result = 3;
+}
+
