@@ -1,45 +1,44 @@
 package services
 
 import (
-  "testing"
-  "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestCreateCommandManager(t *testing.T) {
-  m := CreateCommandManager(storage)
+	m := CreateCommandManager(storage)
 
-  assert.NotNil(t, m)
+	assert.NotNil(t, m)
 }
 
 func TestCommandsManagerCreateCommand(t *testing.T) {
-  m := CreateCommandManager(storage)
-  cmd, err := m.CreateCommand(commandName, commandParams, commandOptions)
+	m := CreateCommandManager(storage)
+	cmd, err := m.CreateCommand(commandName, commandParams, commandOptions)
 
-  assert := assert.New(t)
-  assert.Nil(err)
-  assert.NotNil(cmd)
-  assert.Equal(cmd.GetName(), commandName)
+	assert := assert.New(t)
+	assert.Nil(err)
+	assert.NotNil(cmd)
+	assert.Equal(cmd.GetName(), commandName)
 }
 
 func TestCommandsManagerFindCommand(t *testing.T) {
-  m := CreateCommandsManager(storage)
+	m := CreateCommandsManager(storage)
 
-  cmd, err := m.FindCommand(commandName)
+	cmd, err := m.FindCommand(commandName)
 
-  assert := assert.New(t)
-  assert.Nil(err)
-  assert.NotNil(cmd)
+	assert := assert.New(t)
+	assert.Nil(err)
+	assert.NotNil(cmd)
 }
 
 func TestCommandsManagerDropCommand(t *testing.T) {
-  m := CreateCommandsManager(storage)
+	m := CreateCommandsManager(storage)
 
-  errDrop := m.DropCommand(commandName)
-  cmd, errFind := m.FindCommand(commandName)
+	errDrop := m.DropCommand(commandName)
+	cmd, errFind := m.FindCommand(commandName)
 
-  assert := assert.New(t)
-  assert.Nil(errDrop)
-  assert.NotNil(errFind)
-  assert.Nil(cmd)
+	assert := assert.New(t)
+	assert.Nil(errDrop)
+	assert.NotNil(errFind)
+	assert.Nil(cmd)
 }
-
