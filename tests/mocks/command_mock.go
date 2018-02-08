@@ -24,12 +24,12 @@ func (m *CommandMock) GetParamsList() map[string]string {
     return args.Get(0).(map[string]string)
 }
 
-func (m *CommandMock) Validate(args map[string]string) bool {
+func (m *CommandMock) Validate(argsMap map[string]string) bool {
     args := m.Called()
     return args.Get(0).(bool)
 }
 
-func (m *CommandMock) Validate(args map[string]string) bool {
+func (m *CommandMock) Validate(argsMap map[string]string) bool {
     args := m.Called()
     return args.Get(0).(bool)
 }
