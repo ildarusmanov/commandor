@@ -14,10 +14,24 @@ func TestCreateMemoryStorage(t *testing.T) {
 }
 
 func TestMemoryStorageSaveCommand(t *testing.T) {
-  t.Error("Test not implemented")
+  s, _ := CreateMemoryStorage(options)
+
+  savedCommand, saveErr := s.SaveCommand(command)
+  
+  assert.Nil(saveErr)
+  assert.NotNil(SaveCommand)
+  assert.Equal(command.GetName(), savedCommand.GetName())
+  assert.Equal(commnad.GetParamsList(), savedCommand().GetParamsList())
 }
 
 func TestMemoryStorageFindCommand(t *testing.T) {
-  t.Error("Test not implemented")
+  s, _ := CreateMemoryStorage(options)
+
+  savedCommand, saveErr := s.SaveCommand(command)
+  foundCommand, foundErr := s.FindCommand(savedCommand.GetName())
+
+  assert.Nil(saveErr)
+  assert.Nil(foundErr)
+  assert.NotNil(foundCommand)
 }
 
