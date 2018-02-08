@@ -1,2 +1,1 @@
-# Commands service
-
+# Commands package
