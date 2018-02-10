@@ -1,21 +1,22 @@
 package services
 
 import (
+	"github.com/ildarusmanov/commandor/tests/mocks"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestCreateCommandExecutor(t *testing.T) {
-	e := CreateCommandExecutor(commands)
+	e := CreateCommandExecutor(commandsManager)
 
 	assert.NotNil(t, e)
 }
 
-func TestExecCommandExecutor(t *testing.T) {
-	e := CreateCommandExecutor(commands)
+func TestCommandExecutorExecute(t *testing.T) {
+	e := CreateCommandExecutor(commandsManager)
 
-	resSync, errSync := e.Exec(false, cmd1, cmd2, cmd3)
-	resAsync, errAsync := e.Exec(true, cmd1, cmd2, cmd3)
+	resSync, errSync := e.Execute(false, cmd, params)
+	resAsync, errAsync := e.Execucte(true, cmd, params)
 
 	assert := assert.New(t)
 	assert.NotNil(resSync)
