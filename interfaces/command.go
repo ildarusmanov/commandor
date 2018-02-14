@@ -1,6 +1,6 @@
 package interfaces
 
-// command interface
+// Command interface
 type Command interface {
 	GetName() string
 	GetParamsList() map[string]string
