@@ -1,7 +1,7 @@
 package mocks
 
 import (
-	"github.com/ildarusmanov/CommandResultor/interfaces"
+	"github.com/ildarusmanov/commandor/interfaces"
 	"github.com/stretchr/testify/mock"
 )
 
