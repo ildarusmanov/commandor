@@ -14,6 +14,7 @@ func TestCreateMemoryStorage(t *testing.T) {
 	assert.NotNil(s)
 }
 
+// test save in storage method
 func TestMemoryStorageSaveCommand(t *testing.T) {
 	s, _ := CreateMemoryStorage(options)
 
