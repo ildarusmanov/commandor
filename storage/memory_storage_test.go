@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// test constructor
 func TestCreateMemoryStorage(t *testing.T) {
 	s, err := CreateMemoryStorage(options)
 
