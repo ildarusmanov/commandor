@@ -26,6 +26,7 @@ func TestMemoryStorageSaveCommand(t *testing.T) {
 	assert.Equal(commnad.GetParamsList(), savedCommand().GetParamsList())
 }
 
+// test find command by name
 func TestMemoryStorageFindCommand(t *testing.T) {
 	s, _ := CreateMemoryStorage(options)
 
