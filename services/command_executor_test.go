@@ -6,12 +6,14 @@ import (
 	"testing"
 )
 
+// test constructor
 func TestCreateCommandExecutor(t *testing.T) {
 	e := CreateCommandExecutor(commandsManager)
 
 	assert.NotNil(t, e)
 }
 
+// test execute method
 func TestCommandExecutorExecute(t *testing.T) {
 	e := CreateCommandExecutor(commandsManager)
 
