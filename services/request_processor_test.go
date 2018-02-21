@@ -5,12 +5,14 @@ import (
 	"testing"
 )
 
+// test constructor
 func TestCreateRequestProcessor(t *testing.T) {
 	p := CreateRequestProcessor(validator, executor)
 
 	assert.NotNil(t, p)
 }
 
+// test request processing
 func TestPequestProcessorProcess(t *testing.T) {
 	p := CreateRequestProcessor(validator, executor)
 
