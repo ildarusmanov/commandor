@@ -19,7 +19,7 @@ func TestCreateRequestValidator(t *testing.T) {
 func TestRequestValidatorCreateSignature(t *testing.T) {
 	v := CreateRequestValidator(token)
 	s := v.CreateSignature(timestamp)
-        // new token should not be empty
+	// new token should not be empty
 	assert.NotNil(t, s)
 }
 
@@ -32,6 +32,6 @@ func TestRequestValidatorValidateSignature(t *testing.T) {
 	assert := assert.New(t)
 	// valid token should finish with True
 	assert.True(v.ValidateSignature(validSignature))
-        // invali token should finish with False
+	// invali token should finish with False
 	assert.False(v.ValidateSignature(invalidSignature))
 }
