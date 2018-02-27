@@ -5,12 +5,14 @@ import (
 	"testing"
 )
 
+// test constructor
 func TestCreateCommandManager(t *testing.T) {
 	m := CreateCommandManager(storage)
 
 	assert.NotNil(t, m)
 }
 
+// test create command method
 func TestCommandsManagerCreateCommand(t *testing.T) {
 	m := CreateCommandManager(storage)
 	cmd, err := m.CreateCommand(commandName, commandParams, commandOptions)
@@ -21,6 +23,7 @@ func TestCommandsManagerCreateCommand(t *testing.T) {
 	assert.Equal(cmd.GetName(), commandName)
 }
 
+// test find command method
 func TestCommandsManagerFindCommand(t *testing.T) {
 	m := CreateCommandsManager(storage)
 
@@ -31,6 +34,7 @@ func TestCommandsManagerFindCommand(t *testing.T) {
 	assert.NotNil(cmd)
 }
 
+// test drop command method
 func TestCommandsManagerDropCommand(t *testing.T) {
 	m := CreateCommandsManager(storage)
 
