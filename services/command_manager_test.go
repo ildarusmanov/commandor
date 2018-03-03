@@ -29,9 +29,12 @@ func TestCommandsManagerFindCommand(t *testing.T) {
 
 	cmd, err := m.FindCommand(commandName)
 
+	// should finish without
+	// error and return command
 	assert := assert.New(t)
 	assert.Nil(err)
 	assert.NotNil(cmd)
+	assert.Equal(cmd.GetName(), commandName)
 }
 
 // test drop command method
