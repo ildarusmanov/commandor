@@ -44,6 +44,7 @@ func TestCommandsManagerDropCommand(t *testing.T) {
 	errDrop := m.DropCommand(commandName)
 	cmd, errFind := m.FindCommand(commandName)
 
+	// command should be deleted withour error
 	assert := assert.New(t)
 	assert.Nil(errDrop)
 	assert.NotNil(errFind)
