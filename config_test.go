@@ -5,7 +5,12 @@ import (
 	"testing"
 )
 
-const yamlFile = ""
+const (
+    yamlFile = "tests/fixtures/config.yml"
+    yamlSecretKey = "test_secret_key"
+    yamlTokenType = "tesst_token_type"
+)
+
 
 // test constructor
 func TestCreateConfig(t *testing.T) {
@@ -19,6 +24,9 @@ func TestCreateFromYAML(t *testing.T) {
 	c, err := CreateFromYAML(yamlFile)
 
 	assert := assert.New(t)
+
 	assert.NotNil(c)
 	assert.Nil(err)
+    assert.Equal(config.GetSecretKey(), yamlSecretKey)
+    assert.Equal(config.GetTokenType(), yamlTokenType)
 }
