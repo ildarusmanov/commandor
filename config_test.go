@@ -6,15 +6,14 @@ import (
 )
 
 const (
-    yamlFile = "tests/fixtures/config.yml"
-    yamlSecretKey = "test_secret_key"
-    yamlTokenType = "tesst_token_type"
+	yamlFile      = "tests/fixtures/config.yml"
+	yamlSecretKey = "test_secret_key"
+	yamlTokenType = "tesst_token_type"
 )
 
-
 // test constructor
-func TestCreateConfig(t *testing.T) {
-	c := CreateConfig()
+func TestCreateNewConfig(t *testing.T) {
+	c := CreateNewConfig()
 
 	assert.NotNil(t, c)
 }
@@ -27,6 +26,6 @@ func TestCreateFromYAML(t *testing.T) {
 
 	assert.NotNil(c)
 	assert.Nil(err)
-    assert.Equal(config.GetSecretKey(), yamlSecretKey)
-    assert.Equal(config.GetTokenType(), yamlTokenType)
+	assert.Equal(config.GetSecretKey(), yamlSecretKey)
+	assert.Equal(config.GetTokenType(), yamlTokenType)
 }
