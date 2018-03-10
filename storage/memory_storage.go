@@ -1,15 +1,15 @@
 package storage
 
 import (
+	"errors"
 	"github.com/ildarusmanov/commandor/interfaces"
-    "sync"
-    "errors"
+	"sync"
 )
 
 const commandNotFound = errors.New("Command not found")
 
 type MemoryStorage struct {
-    sync.Mutex
+	sync.Mutex
 	options  map[string]string
 	commands map[string]interfaces.Command
 }
@@ -19,15 +19,15 @@ func CreateMemoryStorage(options map[string]string) *MemoryStorage {
 }
 
 func (s *MemoryStorage) SaveCommand(c interfaces.Command) (interfaces.Command, error) {
-    s.Lock()
-    s.commands[c.GetName()] = c
-    s.Unlock()
+	s.Lock()
+	s.commands[c.GetName()] = c
+	s.Unlock()
 
-    r, ok := s.commands[c.GetName()]
+	r, ok := s.commands[c.GetName()]
 
-    if !ok {
-        return nil, commandNotFound
-    }
+	if !ok {
+		return nil, commandNotFound
+	}
 
-    return r, nil
+	return r, nil
 }
