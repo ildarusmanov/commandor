@@ -31,3 +31,13 @@ func (s *MemoryStorage) SaveCommand(c interfaces.Command) (interfaces.Command, e
 
 	return r, nil
 }
+
+func (s *MemoryStorage) FindCommand(name string) (interfaces.Command, error) {
+    c, ok := s.commands[name]
+
+    if !ok {
+        return nil, commandNotFound
+    }
+
+    return c, nil
+}
