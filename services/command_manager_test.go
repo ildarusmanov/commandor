@@ -4,6 +4,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
+
 // test constructor
 func TestCreateCommandManager(t *testing.T) {
 	m := CreateCommandManager(storage)
