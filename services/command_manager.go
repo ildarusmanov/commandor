@@ -1,13 +1,13 @@
 package services
 
 import (
-    "github.com/ildarusmanov/commandor/interfaces"
+	"github.com/ildarusmanov/commandor/interfaces"
 )
 
 type CommandManager struct {
-    storage interfaces.Storage
+	storage interfaces.Storage
 }
 
 func CreateCommandManager(storage interfaces.Storage) *CommandManager {
-    return &CommandManager{storage}
+	return &CommandManager{storage}
 }
